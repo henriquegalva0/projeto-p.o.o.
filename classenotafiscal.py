@@ -55,10 +55,12 @@ class NotaFiscal():
   def Fornecedor(self, Fornecedor):
     self.__Fornecedor = Fornecedor
 
-def gerarNotaFiscal(codigo,recebimento,valor,tipo,descricao,user):
-  n = NotaFiscal(codigo,recebimento,valor,tipo,descricao)
-  user.notas = n
-  return n
+#from classeusuario import Usuario
 
-def removerNota(nota, user):
-  user.notas.remove(nota)
+#def gerarNotaFiscal(codigo,recebimento,valor,tipo,descricao,user):
+#  n = NotaFiscal(codigo,recebimento,valor,tipo,descricao)
+#  user.notas = n
+#  return n
+
+#def removerNota(nota, user):
+#  user.notas.remove(nota)
