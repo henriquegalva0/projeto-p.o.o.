@@ -1,5 +1,3 @@
-from datetime import datetime,date
-from random import randint
 from classefornecedor import Fornecedor
 
 class Boleto():
@@ -14,7 +12,7 @@ class Boleto():
     self.__Fornecedor=None
 
   def bloquear_modificacao(self, nome):
-      raise ValueError(f"Não é possível modificar o {nome} do boleto.")
+    raise ValueError(f"Não é possível modificar o {nome} do boleto.")
 
   @property
   def status(self):
@@ -64,46 +62,11 @@ class Boleto():
   @Fornecedor.setter
   def Fornecedor(self, Fornecedor):
     self.__Fornecedor = Fornecedor
-    
-  def atualizarStatus(self):
-    if datetime.combine(self.__vencimento, datetime.min.time()) >= datetime.now():
-      self.__status="A vencer"
-    else:
-      self.__status="Vencido"
 
-  def calcularDataVencimento(self):
-    distanciaData=str(datetime.now()-datetime.combine(self.vencimento, datetime.min.time()))
-    if len(distanciaData.split(","))>1:
-      distanciaData=distanciaData.split(",")[0]
-      distanciaData=distanciaData.replace(' ','').replace('days','').replace('day','')
-      inteiroDias=int(distanciaData)
-      if inteiroDias<0:
-        return f"{inteiroDias*(-1)} dia(s) até que o boleto expire."
-      else:
-        return f"{inteiroDias} dia(s) desde que o boleto expirou."
-    else:
-      return "O boleto expirou hoje."
+def gerarBoleto(status,codigo,vencimento,valor,tipo,descricao,user):
+  b = Boleto(status,codigo,vencimento,valor,tipo,descricao)
+  user.boletos = b
+  return b
 
-  def exibirBoleto(self):
-    self.atualizarStatus()
-    return print(f"""
-      Status: {self.__status}
-      Código: {self.__codigo}
-      Vencimento: {str(self.__vencimento),self.calcularDataVencimento()}
-      Valor: R${self.__valor:.2f}
-      Tipo: {self.__tipo}
-      Descricao: {self.__descricao}
-      Fornecedor: {self.Fornecedor.nome}
-      """)
-
-BoletoTeste = Boleto(
-    None,
-    1234567890,
-    datetime.now(),
-    1234.56,
-    "tipo",
-    "descricao"
-    )
-BoletoTeste.Fornecedor=Fornecedor("nome","cnpj","endereco","contato")
-
-BoletoTeste.exibirBoleto()
+def removerBoleto(boleto, user):
+  user.boletos.remove(boleto)
