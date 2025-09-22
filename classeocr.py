@@ -1,11 +1,11 @@
 from datetime import date
 
-from usuario import Usuario
-from fornecedor import Fornecedor
-from boleto import Boleto, gerarBoleto
-from nota_fiscal import NotaFiscal, gerarNotaFiscal
+from classeusuario import Usuario
+from classefornecedor import Fornecedor
+from classeboleto import Boleto, gerarBoleto
+from classenotafiscal import NotaFiscal, gerarNotaFiscal
 
-class OCR:
+class ocr:
     def __init__(self):
         pass
 
