@@ -62,7 +62,7 @@ class Boleto():
   def Fornecedor(self):
     return self.__Fornecedor
   @Fornecedor.setter
-  def Fornecedor(self, autor):
+  def Fornecedor(self, Fornecedor):
     self.__Fornecedor = Fornecedor
     
   def atualizarStatus(self):
