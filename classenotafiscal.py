@@ -1,5 +1,3 @@
-from datetime import datetime,date
-from random import randint
 from classefornecedor import Fornecedor
 
 class NotaFiscal():
@@ -57,23 +55,10 @@ class NotaFiscal():
   def Fornecedor(self, Fornecedor):
     self.__Fornecedor = Fornecedor
 
-  def exibirNotaFiscal(self):
-    return print(f"""
-      Código: {self.__codigo}
-      Recebimento: {str(self.__recebimento)}
-      Valor: R${self.__valor:.2f}
-      Tipo: {self.__tipo}
-      Descricao: {self.descricao}
-      Fornecedor: {self.Fornecedor.nome}
-      """)
+def gerarNotaFiscal(codigo,recebimento,valor,tipo,descricao,user):
+  n = NotaFiscal(codigo,recebimento,valor,tipo,descricao)
+  user.notas = n
+  return n
 
-NotaFiscalTeste = NotaFiscal(
-    1234567890,
-    datetime.now(),
-    1234.56,
-    "tipo",
-    "descricao"
-    )
-NotaFiscalTeste.Fornecedor=Fornecedor("nome","cnpj","endereco","contato")
-
-NotaFiscalTeste.exibirNotaFiscal()
+def removerNota(nota, user):
+  user.notas.remove(nota)
