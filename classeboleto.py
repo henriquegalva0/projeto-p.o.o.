@@ -63,10 +63,12 @@ class Boleto():
   def Fornecedor(self, Fornecedor):
     self.__Fornecedor = Fornecedor
 
-def gerarBoleto(status,codigo,vencimento,valor,tipo,descricao,user):
-  b = Boleto(status,codigo,vencimento,valor,tipo,descricao)
-  user.boletos = b
-  return b
+#from classeusuario import Usuario
 
-def removerBoleto(boleto, user):
-  user.boletos.remove(boleto)
+#def gerarBoleto(status,codigo,vencimento,valor,tipo,descricao,user):
+#  b = Boleto(status,codigo,vencimento,valor,tipo,descricao)
+#  user.boletos = b
+#  return b
+
+#def removerBoleto(boleto, user):
+#  user.boletos.remove(boleto)
