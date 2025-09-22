@@ -4,31 +4,31 @@ class Fornecedor():
         self.__cnpj = cnpj
         self.__endereco = endereco
         self.__contato = contato
-    
-    @property             
+
+    @property
     def nome(self):
         return self.__nome
 
-    @nome.setter     
+    @nome.setter
     def nome(self,nome):
         self.__nome = nome
-    
+
     @property
     def cnpj(self):
         return self.__cnpj
-    
+
     @cnpj.setter
-    def cpnj(self, cnpj):
+    def cnpj(self, cnpj):
         self.__cnpj = cnpj
-    
+
     @property
     def endereco(self):
         return self.__endereco
-    
+
     @endereco.setter
     def endereco(self, endereco):
         self.__endereco = endereco
-    
+
     @property
     def contato(self):
         return self.__contato
