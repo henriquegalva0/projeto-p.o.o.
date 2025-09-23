@@ -2,14 +2,14 @@ from classenotafiscal import NotaFiscal
 from classeboleto import Boleto
 
 class Usuario:
-    def __init__(self, nome, email, senha, telefone, endereco, cpf, cnpj):
+    def __init__(self, nome, email, senha, telefone, endereco):
         self.__nome = nome
         self.__email = email
         self.__senha = senha
         self.__telefone = telefone
         self.__endereco = endereco
-        self.__cpf = cpf
-        self.__cnpj = cnpj
+        self.__cpf = None
+        self.__cnpj = None
         self.__boletos = []
         self.__notas = []
 
