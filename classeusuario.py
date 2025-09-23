@@ -2,13 +2,14 @@ from classenotafiscal import NotaFiscal
 from classeboleto import Boleto
 
 class Usuario:
-    def __init__(self, nome, email, senha, telefone, endereco, cpf):
+    def __init__(self, nome, email, senha, telefone, endereco, cpf, cnpj):
         self.__nome = nome
         self.__email = email
         self.__senha = senha
         self.__telefone = telefone
         self.__endereco = endereco
         self.__cpf = cpf
+        self.__cnpj = cnpj
         self.__boletos = []
         self.__notas = []
 
@@ -53,7 +54,14 @@ class Usuario:
     @cpf.setter
     def cpf(self, cpf):
         self.__cpf = cpf
-
+        
+    @property
+    def cnpj(self):
+        return self.__cnpj
+    @cnpj.setter
+    def cnpj(self,cnpj):
+        self.__cnpj = cnpj
+        
     @property
     def boletos(self):
         return self.__boletos
